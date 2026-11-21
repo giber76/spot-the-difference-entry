@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hidden Worlds — Spot the Difference</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud-top">
+    <div class="hud-left">
+      <div id="scene-name">Coral Reef Dive</div>
+      <div id="scene-meta">Scene 1 of 3 · Under the waves · Par 1:30</div>
+    </div>
+    <div class="hud-center">
+      <div id="remain">8 to find</div>
+      <div id="timebar"><div id="timebar-fill"></div></div>
+      <div id="timer">0:00</div>
+    </div>
+    <div class="hud-right">
+      <div id="score">Score 0</div>
+      <div id="combo"></div>
+      <div id="strikes">Strikes: 0</div>
+      <div class="hud-buttons">
+        <button id="btn-hint">Hint (3)</button>
+        <button id="btn-pause">Pause</button>
+        <button id="btn-restart">Restart</button>
+        <button id="btn-mute">Mute</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="stage">
+    <div class="panel-wrap">
+      <div class="panel-label">LEFT — original</div>
+      <canvas id="panel-left" width="640" height="400"></canvas>
+    </div>
+    <div id="vs">VS</div>
+    <div class="panel-wrap">
+      <div class="panel-label">RIGHT — spot the changes</div>
+      <canvas id="panel-right" width="640" height="400"></canvas>
+    </div>
+
+    <div id="overlay-title" class="overlay show">
+      <div class="card">
+        <h1>Hidden Worlds</h1>
+        <p class="tagline">Spot the Difference</p>
+        <p>Three hand-drawn worlds. Eight differences hiding in each one.
+        Click a difference on either picture — a wrong click costs 3 seconds
+        and 25 points. Find them all before the par time for three stars.</p>
+        <button id="btn-start" class="big">▶ Start the hunt</button>
+        <div class="scene-pick">
+          <button data-scene="0">🪸 Coral Reef Dive</button>
+          <button data-scene="1">❄️ Snowy Cabin Night</button>
+          <button data-scene="2">🌻 Sunflower Farm</button>
+        </div>
+        <p class="keys">Keys: H hint · P pause · R restart · M mute · Enter start</p>
+      </div>
+    </div>
+
+    <div id="overlay-scene" class="overlay">
+      <div class="card">
+        <h2>Scene complete!</h2>
+        <div id="scene-stars" class="stars">★★★</div>
+        <p id="scene-time"></p>
+        <p id="scene-score"></p>
+        <button id="btn-next" class="big">Next scene →</button>
+      </div>
+    </div>
+
+    <div id="overlay-game" class="overlay">
+      <div class="card">
+        <h2>You found them all!</h2>
+        <div id="game-stars" class="stars">★★★</div>
+        <p id="game-score"></p>
+        <p id="game-line"></p>
+        <button id="btn-again" class="big">↻ Play again</button>
+      </div>
+    </div>
+
+    <div id="overlay-pause" class="overlay">
+      <div class="card">
+        <h2>Paused</h2>
+        <p>Take a breath — the timer is stopped.</p>
+        <button id="btn-resume" class="big">Resume</button>
+        <button id="btn-quit">Back to title</button>
+      </div>
+    </div>
+  </main>
+
+  <footer id="hud-bottom">
+    <div id="found-row"><span>Found:</span><span id="found-dots"></span></div>
+    <div id="toast"></div>
+    <div id="help">Click a difference on either panel. Wrong clicks cost 3 seconds. H hint · P pause · R restart</div>
+  </footer>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

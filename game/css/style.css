@@ -1,0 +1,99 @@
+/* style.css — the look of Hidden Worlds: dark frame, bright pictures. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0f1b2d;
+  color: #eef4fb;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+#app { max-width: 1240px; margin: 0 auto; padding: 10px 14px 14px; }
+
+/* ---- header HUD ---- */
+#hud-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px; padding: 4px 2px 10px;
+}
+.hud-left { min-width: 220px; }
+#scene-name { font-size: 22px; font-weight: 800; color: #ffd54f; line-height: 1.1; }
+#scene-meta { font-size: 12px; color: #9fb4c8; margin-top: 3px; }
+.hud-center { text-align: center; flex: 1; }
+#remain { font-size: 30px; font-weight: 800; color: #ffd54f; line-height: 1; }
+#timebar {
+  width: 240px; height: 8px; margin: 6px auto 4px;
+  background: #24344a; border-radius: 4px; overflow: hidden;
+}
+#timebar-fill { height: 100%; width: 0%; background: #ffd54f; transition: width .25s linear; }
+#timebar-fill.over { background: #ef5350; }
+#timer { font-size: 14px; font-variant-numeric: tabular-nums; color: #cfe0ef; }
+.hud-right { min-width: 220px; text-align: right; }
+#score { font-size: 18px; font-weight: 700; }
+#combo { font-size: 13px; color: #69f0ae; min-height: 16px; font-weight: 700; }
+#strikes { font-size: 12px; color: #ef9a9a; }
+.hud-buttons { margin-top: 6px; display: flex; gap: 6px; justify-content: flex-end; }
+
+button {
+  background: #ffb300; color: #1a1200; border: none; border-radius: 8px;
+  padding: 7px 13px; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+button:hover { background: #ffc93c; }
+button:disabled { background: #546e7a; color: #b0bec5; cursor: default; }
+button.big { font-size: 17px; padding: 12px 26px; margin-top: 10px; }
+
+/* ---- stage ---- */
+#stage { position: relative; display: flex; align-items: flex-start; gap: 8px; }
+.panel-wrap { flex: 1; min-width: 0; }
+.panel-label {
+  text-align: center; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; color: #9fb4c8; margin-bottom: 5px;
+}
+canvas {
+  display: block; width: 100%; height: auto;
+  border-radius: 10px; border: 2px solid #2b3d55;
+  background: #123; cursor: crosshair;
+}
+#vs {
+  align-self: center; font-size: 15px; font-weight: 800; color: #ffb300;
+  padding-top: 18px;
+}
+
+/* ---- footer ---- */
+#hud-bottom { margin-top: 10px; text-align: center; }
+#found-row { font-size: 13px; color: #9fb4c8; }
+#found-dots { margin-left: 6px; }
+.dot {
+  display: inline-block; width: 20px; height: 20px; line-height: 20px;
+  border-radius: 50%; border: 2px solid #546e7a; color: #69f0ae;
+  font-size: 12px; text-align: center; margin: 0 2px; vertical-align: middle;
+}
+.dot.on { border-color: #69f0ae; background: rgba(105, 240, 174, .15); }
+#toast {
+  min-height: 22px; margin-top: 6px; font-size: 14px; font-weight: 600;
+  color: #ffd54f; opacity: 0; transition: opacity .2s;
+}
+#toast.show { opacity: 1; }
+#help { font-size: 12px; color: #7e93a8; margin-top: 2px; }
+
+/* ---- overlays ---- */
+.overlay {
+  position: absolute; inset: 0; display: none;
+  align-items: center; justify-content: center;
+  background: rgba(8, 16, 28, .72); border-radius: 10px; z-index: 5;
+}
+.overlay.show { display: flex; }
+.card {
+  background: #16263d; border: 1px solid #2b3d55; border-radius: 14px;
+  padding: 26px 34px; text-align: center; max-width: 520px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .5);
+}
+.card h1 { font-size: 40px; color: #ffd54f; letter-spacing: 1px; }
+.card h2 { font-size: 28px; color: #ffd54f; }
+.card .tagline { font-size: 18px; color: #9fb4c8; margin: 2px 0 12px; }
+.card p { font-size: 14px; line-height: 1.55; color: #d7e3ef; margin-top: 8px; }
+.card .stars { font-size: 34px; color: #ffd54f; letter-spacing: 4px; margin: 8px 0; }
+.scene-pick { display: flex; gap: 8px; justify-content: center; margin-top: 14px; flex-wrap: wrap; }
+.scene-pick button { background: #24344a; color: #eef4fb; }
+.scene-pick button:hover { background: #31465f; }
+.keys { font-size: 12px !important; color: #7e93a8 !important; margin-top: 14px !important; }
+#btn-quit { background: transparent; color: #9fb4c8; margin-top: 10px; }
